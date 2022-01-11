@@ -4,12 +4,11 @@ const { v4: uuidV4 } = require('uuid');
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.redirect(`/${uuidV4()}`);
+  res.redirect(`/${ uuidV4() }`);
 })
 
-router.get('/:room', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/:room', function(req, res) {
+  res.render('index', { roomId: req.param.room });
 });
-
 
 module.exports = router;
